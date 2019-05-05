@@ -62,6 +62,8 @@ namespace Studio_Wave_Transfer_2019
             //TransferGrid.DataContext = custdata;
         }
 
+
+        // Use this how a exemple
         private ObservableCollection<TransferFiles> GetData()
         {
             var data = new ObservableCollection<TransferFiles>
@@ -105,8 +107,7 @@ namespace Studio_Wave_Transfer_2019
             string ext = ExtensionTextBox.Text;
             string source = "";
             string destination = "";
-            string secondSource = "";
-            string secondDestination = "";
+
 
             // Loading the variables
             if (File.Exists(initFilePath))
@@ -132,21 +133,6 @@ namespace Studio_Wave_Transfer_2019
                                 destination = part[1];
                                 break;
 
-                            case SecondSourceFolderPath:
-                                secondSource = part[1];
-                                break;
-
-                            case SecondDestinationFolderPath:
-                                secondDestination = part[1];
-                                break;
-
-                            case OpenAndRunPath:
-                                if (part[1] == "True")
-                                {
-                                    //OpenAndRunCheckBox.IsChecked = true;
-                                }
-                                break;
-
                             default:
                                 throw new Exception("Unknown init file entry: " + line);
                         }
@@ -158,8 +144,6 @@ namespace Studio_Wave_Transfer_2019
                 // No init file exists yet, so set defaults.
                 source = "";
                 destination = "";
-                secondSource = "";
-                secondDestination = "";
             }
 
 
@@ -217,6 +201,63 @@ namespace Studio_Wave_Transfer_2019
                 }
 
             }
+
+        }
+
+        private void RunSecondFunction()
+        {
+            // Variables
+            string secondSource = "";
+            string secondDestination = "";
+
+            // Loading the variables
+            if (File.Exists(initFilePath))
+            {
+                String line = null;
+                String[] part;
+
+                using (var sr = new StreamReader(initFilePath))
+                {
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        // Split the line into the part before the colon (the name), and the part after (the value).
+                        part = line.Split(SettingDivider);
+
+                        // Switch on the "name" part, and then process the "value" part.
+                        switch (part[0])
+                        {
+                            case SecondSourceFolderPath:
+                                secondSource = part[1];
+                                break;
+
+                            case SecondDestinationFolderPath:
+                                secondDestination = part[1];
+                                break;
+
+                            default:
+                                throw new Exception("Unknown init file entry: " + line);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // No init file exists yet, so set defaults.
+                secondSource = "";
+                secondDestination = "";
+            }
+
+            // Starting the Watcher
+            string[] files = Directory.GetFiles(secondSource);
+            int checkSameName;
+
+            foreach (string v1 in files)
+            {
+                checkSameName = 0;
+
+            }
+
+
 
         }
 
