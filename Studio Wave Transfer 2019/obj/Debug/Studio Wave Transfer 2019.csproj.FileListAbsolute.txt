@@ -1,0 +1,30 @@
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\bin\Debug\Studio Wave Transfer 2019.exe.config
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\bin\Debug\Studio Wave Transfer 2019.exe
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\bin\Debug\Studio Wave Transfer 2019.pdb
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Studio Wave Transfer 2019.csprojAssemblyReference.cache
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\MainWindow.g.cs
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\App.g.cs
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Studio Wave Transfer 2019_MarkupCompile.cache
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Studio Wave Transfer 2019_MarkupCompile.lref
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\MainWindow.baml
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Studio Wave Transfer 2019.g.resources
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Studio_Wave_Transfer_2019.Properties.Resources.resources
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Studio Wave Transfer 2019.csproj.GenerateResource.cache
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Studio Wave Transfer 2019.csproj.CoreCompileInputs.cache
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Studio Wave Transfer 2019.exe
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Studio Wave Transfer 2019.pdb
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\bin\Debug\MaterialDesignColors.dll
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Studio Wave Transfer 2019.csproj.CopyComplete
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Pages\MainPage.g.cs
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Pages\FoldersPage.g.cs
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Pages\AboutPage.g.cs
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Pages\SettingsPage.g.cs
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Pages\MainPage.baml
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Pages\FoldersPage.baml
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Pages\AboutPage.baml
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Pages\SettingsPage.baml
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Pages\DictionaryPage.g.cs
+C:\Users\perli\source\repos\Studio Wave Transfer 2019\Studio Wave Transfer 2019\obj\Debug\Pages\DictionaryPage.baml

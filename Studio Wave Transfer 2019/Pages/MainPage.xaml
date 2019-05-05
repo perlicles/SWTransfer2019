@@ -1,0 +1,76 @@
+﻿<Page x:Class="Studio_Wave_Transfer_2019.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Studio_Wave_Transfer_2019"
+      mc:Ignorable="d" 
+      d:DesignHeight="510" d:DesignWidth="830"
+      Title="MainPage" LostFocus="Page_LostFocus">
+    <Page.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#FF252526"/>
+        </Style>
+        <Style x:Key="CenterColumn"  TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="#FF3E3E40" VerticalAlignment="Center" Height="510">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Column="1">
+            <Grid DockPanel.Dock="Top" Height="80" Margin="-40,0" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="1" Margin="10">
+                        <StackPanel Orientation="Horizontal" Margin="5 0 5 0" >
+                            <TextBlock Text="Extensão de arquivo alvo: " Foreground="#FFF0EFF1"/>
+                            <TextBox x:Name="ExtensionTextBox" Width="57" Text="mp4" TextAlignment="Center" Margin="5 0 0 0" Foreground="#FF13688D" />
+                        </StackPanel>
+                        <CheckBox x:Name="MainFunctionCheckBox" Content="Ativar função principal" Foreground="#FFF0EFF1" VerticalAlignment="Stretch" Margin="5 5 5 0"/>
+                        <CheckBox x:Name="SecondFunctionCheckBox" Content="Ativar função secundária" Foreground="#FFF0EFF1" VerticalAlignment="Stretch" Margin="5 5 5 0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <ToggleButton x:Name="RunTransferButton" Content="Executar Transfer" HorizontalAlignment="Left" Width="185" Height="60" FontSize="18" Foreground="White" Background="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}" Style="{DynamicResource ToggleButtonStyle2}" Margin="0,10" BorderBrush="#FF707070" Checked="RunTransferButton_Checked" Unchecked="RunTransferButton_Unchecked"/>
+                        <Button Content="Limpar" FontSize="16" Width="130" Margin="30 10 10 10" Background="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}" Foreground="White"/>
+                    </StackPanel>
+
+                </Grid>
+            </Grid>
+
+            <Grid>
+                <DataGrid
+                    x:Name="TransferGrid"
+                    AutoGenerateColumns="False"
+                    Background="#FF252526"
+                    ItemsSource="{Binding}"
+                    RowBackground="#FF2D2D30"
+                    Foreground="#FF13688D"
+                    AlternatingRowBackground="#FF333337"
+                    AlternationCount="2"
+                    Height="370" 
+                    Margin="-40,42,-40,18" 
+                    HeadersVisibility="Column">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Arquivo" Binding="{Binding File}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" Width="*" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="  Data de Transferência  " Binding="{Binding TransferDate}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource CenterColumn}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="  Função Principal  " Binding="{Binding MainFunction}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource CenterColumn}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="  Função Secundária  " Binding="{Binding SecundaryFunction}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource CenterColumn}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </DockPanel>
+
+    </Grid>
+</Page>

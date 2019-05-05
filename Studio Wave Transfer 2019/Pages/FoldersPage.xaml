@@ -1,0 +1,58 @@
+﻿<Page x:Class="Studio_Wave_Transfer_2019.Page3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Studio_Wave_Transfer_2019"
+      mc:Ignorable="d" 
+      d:DesignHeight="510" d:DesignWidth="830"
+      Title="FoldersPage" LostFocus="Page_LostFocus">
+
+    <Grid Background="#FF2D2D30" VerticalAlignment="Center" Height="510">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Margin="10">
+                <StackPanel>
+                    <TextBlock Text="Diretório fonte" Foreground="#FFF0EFF1" FontSize="14" Margin="0 10 0 0 " />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="SourceFolderTextBox" Width="400" HorizontalAlignment="Left" Text="" Margin="0 10 0 0" TextAlignment="Left" FontSize="14" Foreground="#FF13688D"/>
+                        <Button x:Name="SourceFolderButton" Margin="10 10 0 0" Content="..." Width="40" Click="SourceFolderButton_Click" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Diretório destino" Foreground="#FFF0EFF1" FontSize="14" Margin="0 10 0 0 " />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="DestinationFolderTextBox" Width="400" HorizontalAlignment="Left" Text="D:\Pasta Teste 2" Margin="0 10 0 0" TextAlignment="Left" FontSize="14" Foreground="#FF13688D"/>
+                        <Button x:Name="DestinationFolderButton" Margin="10 10 0 0" Content="..." Width="40" Click="DestinationFolderButton_Click"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Diretório secundário fonte" Foreground="#FFF0EFF1" FontSize="14" Margin="0 10 0 0 " />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="SecondSourceFolderTextBox" Width="400" HorizontalAlignment="Left" Text="D:\Pasta Teste 3" Margin="0 10 0 0" TextAlignment="Left" FontSize="14" Foreground="#FF13688D"/>
+                        <Button x:Name="SecondSourceFolderButton" Margin="10 10 0 0" Content="..." Width="40" Click="SecondSourceFolderButton_Click"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Diretório secundário destino" Foreground="#FFF0EFF1" FontSize="14" Margin="0 10 0 0 " />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="SecondDestinationFolderTextBox" Width="400" HorizontalAlignment="Left" Text="D:\Pasta Teste 4" Margin="0 10 0 0" TextAlignment="Left" FontSize="14" Foreground="#FF13688D"/>
+                        <Button x:Name="SecondDestinationFolderButton" Margin="10 10 0 0" Content="..." Width="40" Click="SecondDestinationFolderButton_Click"/>
+                    </StackPanel>
+                </StackPanel>
+                <CheckBox x:Name="OpenAndRunCheckBox" Content="Abrir e executar automaticamente" Foreground="White" Margin="0 40 0 0"/>
+                <StackPanel Margin="0 40 0 0" Orientation="Horizontal">
+                    <Button x:Name="SavePresetButton" Width="90" Height="35" Content="Save" Click="SavePresetButton_Click"/>
+                    <Button x:Name="LoadPresetButton" Width="90" Height="35" Content="Load" Margin="50 0 0 0" Click="LoadPresetButton_Click" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

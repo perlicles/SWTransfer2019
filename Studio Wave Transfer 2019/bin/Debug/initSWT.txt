@@ -1,0 +1,5 @@
+source folder*D:\3 - Development\SWtransferTestArea\source
+destination folder*D:\3 - Development\SWtransferTestArea\destination
+second source*D:\3 - Development\SWtransferTestArea\second source
+second destination*D:\3 - Development\SWtransferTestArea\second destination
+open and run*True
