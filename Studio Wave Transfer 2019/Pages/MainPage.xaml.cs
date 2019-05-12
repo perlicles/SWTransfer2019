@@ -107,6 +107,10 @@ namespace Studio_Wave_Transfer_2019
             string ext = ExtensionTextBox.Text;
             string source = "";
             string destination = "";
+            string secondSource = "";
+            string secondDestination = "";
+            string openAndRun = "";
+
 
 
             // Loading the variables
@@ -131,6 +135,18 @@ namespace Studio_Wave_Transfer_2019
 
                             case DestinationFolderPath:
                                 destination = part[1];
+                                break;
+
+                            case SecondSourceFolderPath:
+                                secondSource = part[1];
+                                break;
+
+                            case SecondDestinationFolderPath:
+                                secondDestination = part[1];
+                                break;
+
+                            case OpenAndRunPath:
+                                openAndRun = part[1];
                                 break;
 
                             default:
@@ -191,8 +207,6 @@ namespace Studio_Wave_Transfer_2019
                         
                         TransferGrid.DataContext = custdata;
 
-
-
                     }
                     catch (IOException e)
                     {
@@ -207,8 +221,12 @@ namespace Studio_Wave_Transfer_2019
         private void RunSecondFunction()
         {
             // Variables
+            string ext = ExtensionTextBox.Text;
+            string source = "";
+            string destination = "";
             string secondSource = "";
             string secondDestination = "";
+            string openAndRun = "";
 
             // Loading the variables
             if (File.Exists(initFilePath))
@@ -226,12 +244,24 @@ namespace Studio_Wave_Transfer_2019
                         // Switch on the "name" part, and then process the "value" part.
                         switch (part[0])
                         {
+                            case SourceFolderPath:
+                                source = part[1];
+                                break;
+
+                            case DestinationFolderPath:
+                                destination = part[1];
+                                break;
+
                             case SecondSourceFolderPath:
                                 secondSource = part[1];
                                 break;
 
                             case SecondDestinationFolderPath:
                                 secondDestination = part[1];
+                                break;
+
+                            case OpenAndRunPath:
+                                openAndRun = part[1];
                                 break;
 
                             default:
@@ -247,23 +277,73 @@ namespace Studio_Wave_Transfer_2019
                 secondDestination = "";
             }
 
-            // Starting the Watcher
-            string[] files = Directory.GetFiles(secondSource);
-            int checkSameName;
+            SecondFunctionCore(destination, secondSource, secondDestination);
 
-            foreach (string v1 in files)
+            string[] directories = Directory.GetDirectories(secondSource, "*", SearchOption.AllDirectories);
+            foreach (string directory in directories)
             {
-                checkSameName = 0;
-
+                SecondFunctionCore(destination, directory, secondDestination);
             }
-
 
 
         }
 
+        private void SecondFunctionCore(string destination, string secondSource, string secondDestination)
+        {
+            // Starting the Watcher
+            string[] files = Directory.GetFiles(destination);
+            string fileName = "";
+
+            foreach (string v1 in files)
+            {
+                if (File.Exists(v1))
+                {
+                    fileName = System.IO.Path.GetFileName(v1);
+                }
+
+                string[] lowFiles = Directory.GetFiles(secondSource);
+                string lowFileName = "";
+
+                foreach (string v2 in lowFiles)
+                {
+                    lowFileName = System.IO.Path.GetFileName(v2);
+
+                    if (fileName != "" && fileName == lowFileName)
+                    {
+                        int posIndex = lowFileName.LastIndexOf(".");
+                        string lowFileNameWithOutExtension = posIndex > 0 ? lowFileName.Substring(0, posIndex) : lowFileName;
+                        string lowFileExtension = posIndex > 0 ? lowFileName.Substring(posIndex) : lowFileName;
+                        lowFileName = lowFileNameWithOutExtension + "_1" + lowFileExtension;
+
+                        try
+                        {
+
+                            File.Move(v1, secondDestination + "\\" + fileName);
+                            File.Move(v2, secondDestination + "\\" + lowFileName);
+                        }
+                        catch (IOException e)
+                        {
+                            Console.WriteLine(e.Source);
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+
         private void dtTicker(object sender, EventArgs e)
         {
-            RunWatcherFunction();
+            if (MainFunctionCheckBox.IsChecked == true)
+            {
+                RunWatcherFunction();
+            }
+            if (SecondFunctionCheckBox.IsChecked == true)
+            {
+                RunSecondFunction();
+            }
+
         }
 
         private void RunTransferButton_Unchecked(object sender, RoutedEventArgs e)
