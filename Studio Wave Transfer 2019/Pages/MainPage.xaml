@@ -15,6 +15,73 @@
         <Style x:Key="CenterColumn"  TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ToggleButtonStyle1" TargetType="{x:Type ToggleButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="border" BorderBrush="#FF3E3E40" BorderThickness="1" Background="#FF3E3E40" SnapsToDevicePixels="true">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition From="MouseOver" GeneratedDuration="0" To="Normal">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0:0:0.5" To="#FF3E3E40" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border"/>
+                                            </Storyboard>
+                                        </VisualTransition>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="#FF3E3E40"/>
+                                                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FF13688D"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed"/>
+                                    <VisualState x:Name="Disabled"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsDefaulted" Value="true"/>
+                            <Trigger Property="IsMouseOver" Value="true"/>
+                            <Trigger Property="IsPressed" Value="true"/>
+                            <Trigger Property="IsEnabled" Value="false"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
     </Page.Resources>
 
     <Grid Background="#FF3E3E40" VerticalAlignment="Center" Height="510">
@@ -34,15 +101,17 @@
 
                     <StackPanel Grid.Column="1" Margin="10">
                         <StackPanel Orientation="Horizontal" Margin="5 0 5 0" >
-                            <TextBlock Text="Extensão de arquivo alvo: " Foreground="#FFF0EFF1"/>
+                            <TextBlock Text="Extensão de arquivo alvo: " Foreground="#FF13688D"/>
                             <TextBox x:Name="ExtensionTextBox" Width="57" Text="mp4" TextAlignment="Center" Margin="5 0 0 0" Foreground="#FF13688D" />
                         </StackPanel>
-                        <CheckBox x:Name="MainFunctionCheckBox" Content="Ativar função principal" Foreground="#FFF0EFF1" VerticalAlignment="Stretch" Margin="5 5 5 0"/>
-                        <CheckBox x:Name="SecondFunctionCheckBox" Content="Ativar função secundária" Foreground="#FFF0EFF1" VerticalAlignment="Stretch" Margin="5 5 5 0" />
+                        <CheckBox x:Name="MainFunctionCheckBox" Content="Ativar função principal" Foreground="#FF13688D" VerticalAlignment="Stretch" Margin="5 5 5 0"/>
+                        <CheckBox x:Name="SecondFunctionCheckBox" Content="Ativar função secundária" Foreground="#FF13688D" VerticalAlignment="Stretch" Margin="5 5 5 0" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <ToggleButton x:Name="RunTransferButton" Content="Executar Transfer" HorizontalAlignment="Left" Width="185" Height="60" FontSize="18" Foreground="White" Background="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}" Style="{DynamicResource ToggleButtonStyle2}" Margin="0,10" BorderBrush="#FF707070" Checked="RunTransferButton_Checked" Unchecked="RunTransferButton_Unchecked"/>
-                        <Button Content="Limpar" FontSize="16" Width="130" Margin="30 10 10 10" Background="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}" Foreground="White"/>
+                        <Grid>
+                            <ToggleButton x:Name="RunTransferButton" Content="Executar Transfer" HorizontalAlignment="Left" Width="185" Height="60" FontSize="18" Foreground="#FF13688D" Margin="0,10" BorderBrush="#FF3E3E40" Checked="RunTransferButton_Checked" Unchecked="RunTransferButton_Unchecked" Background="#FF3E3E40" Style="{DynamicResource ToggleButtonStyle1}"/>
+                        </Grid>
+                        <Button Content="Limpar" FontSize="16" Width="130" Margin="30 10 10 10" Background="#FF3E3E40" Foreground="#FF13688D" BorderBrush="#FF3E3E40"/>
                     </StackPanel>
 
                 </Grid>

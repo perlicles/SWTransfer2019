@@ -78,7 +78,7 @@
                 </StackPanel>
             </Grid>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Margin="0,-60,0,0">
-                <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#FF1F1F1F">
+                <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#FF1F1F1F" Margin="0,60,0,0">
                     <StackPanel>
                         <Grid Height="60" Background="{x:Null}">
                             <Button x:Name="CloseMenuButton" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="CloseMenuButton_Click">
