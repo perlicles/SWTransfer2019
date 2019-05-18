@@ -8,7 +8,7 @@
       d:DesignHeight="510" d:DesignWidth="830"
       Title="FoldersPage" LostFocus="Page_LostFocus">
 
-    <Grid Background="#FF2D2D30" VerticalAlignment="Center" Height="510">
+    <Grid Background="#FF3E3E40" VerticalAlignment="Center" Height="510">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
@@ -23,34 +23,34 @@
                     <TextBlock Text="Diretório fonte" Foreground="#FFF0EFF1" FontSize="14" Margin="0 10 0 0 " />
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="SourceFolderTextBox" Width="400" HorizontalAlignment="Left" Text="" Margin="0 10 0 0" TextAlignment="Left" FontSize="14" Foreground="#FF13688D"/>
-                        <Button x:Name="SourceFolderButton" Margin="10 10 0 0" Content="..." Width="40" Click="SourceFolderButton_Click" />
+                        <Button x:Name="SourceFolderButton" Foreground="#FF13688D" Margin="10 10 0 0" Content="..." Width="40" Click="SourceFolderButton_Click" Style="{DynamicResource ButtonStyle1}" />
                     </StackPanel>
                 </StackPanel>
                 <StackPanel>
                     <TextBlock Text="Diretório destino" Foreground="#FFF0EFF1" FontSize="14" Margin="0 10 0 0 " />
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="DestinationFolderTextBox" Width="400" HorizontalAlignment="Left" Text="D:\Pasta Teste 2" Margin="0 10 0 0" TextAlignment="Left" FontSize="14" Foreground="#FF13688D"/>
-                        <Button x:Name="DestinationFolderButton" Margin="10 10 0 0" Content="..." Width="40" Click="DestinationFolderButton_Click"/>
+                        <Button x:Name="DestinationFolderButton" Foreground="#FF13688D" Margin="10 10 0 0" Content="..." Width="40" Click="DestinationFolderButton_Click" Style="{DynamicResource ButtonStyle1}"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel>
                     <TextBlock Text="Diretório secundário fonte" Foreground="#FFF0EFF1" FontSize="14" Margin="0 10 0 0 " />
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="SecondSourceFolderTextBox" Width="400" HorizontalAlignment="Left" Text="D:\Pasta Teste 3" Margin="0 10 0 0" TextAlignment="Left" FontSize="14" Foreground="#FF13688D"/>
-                        <Button x:Name="SecondSourceFolderButton" Margin="10 10 0 0" Content="..." Width="40" Click="SecondSourceFolderButton_Click"/>
+                        <Button x:Name="SecondSourceFolderButton" Foreground="#FF13688D" Margin="10 10 0 0" Content="..." Width="40" Click="SecondSourceFolderButton_Click" Style="{DynamicResource ButtonStyle1}"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel>
                     <TextBlock Text="Diretório secundário destino" Foreground="#FFF0EFF1" FontSize="14" Margin="0 10 0 0 " />
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="SecondDestinationFolderTextBox" Width="400" HorizontalAlignment="Left" Text="D:\Pasta Teste 4" Margin="0 10 0 0" TextAlignment="Left" FontSize="14" Foreground="#FF13688D"/>
-                        <Button x:Name="SecondDestinationFolderButton" Margin="10 10 0 0" Content="..." Width="40" Click="SecondDestinationFolderButton_Click"/>
+                        <Button x:Name="SecondDestinationFolderButton" Foreground="#FF13688D" Margin="10 10 0 0" Content="..." Width="40" Click="SecondDestinationFolderButton_Click" Style="{DynamicResource ButtonStyle1}"/>
                     </StackPanel>
                 </StackPanel>
                 <CheckBox x:Name="OpenAndRunCheckBox" Content="Abrir e executar automaticamente" Foreground="White" Margin="0 40 0 0"/>
                 <StackPanel Margin="0 40 0 0" Orientation="Horizontal">
-                    <Button x:Name="SavePresetButton" Width="90" Height="35" Content="Save" Click="SavePresetButton_Click"/>
-                    <Button x:Name="LoadPresetButton" Width="90" Height="35" Content="Load" Margin="50 0 0 0" Click="LoadPresetButton_Click" />
+                    <Button x:Name="SavePresetButton" Width="90" Height="35" Foreground="#FF13688D" Content="Save" Click="SavePresetButton_Click" Style="{DynamicResource ButtonStyle1}"/>
+                    <Button x:Name="LoadPresetButton" Width="90" Height="35" Foreground="#FF13688D" Content="Load" Margin="50 0 0 0" Click="LoadPresetButton_Click" Style="{DynamicResource ButtonStyle1}" />
                 </StackPanel>
             </StackPanel>
         </Grid>

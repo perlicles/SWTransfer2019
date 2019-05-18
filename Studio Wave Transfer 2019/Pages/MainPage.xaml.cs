@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -28,8 +29,6 @@ namespace Studio_Wave_Transfer_2019
         ObservableCollection<TransferFiles> custdata = new ObservableCollection<TransferFiles>();
 
         DispatcherTimer dt = new DispatcherTimer();
-
-       
 
         const string SourceFolderPath = "source folder";
         const string DestinationFolderPath = "destination folder";
@@ -62,7 +61,6 @@ namespace Studio_Wave_Transfer_2019
             //TransferGrid.DataContext = custdata;
         }
 
-
         // Use this how a exemple
         private ObservableCollection<TransferFiles> GetData()
         {
@@ -93,15 +91,36 @@ namespace Studio_Wave_Transfer_2019
         private void RunTransferButton_Checked(object sender, RoutedEventArgs e)
         {
             dt.Interval = TimeSpan.FromSeconds(2);
-            dt.Tick += dtTicker;
+            dt.Tick += DtTicker;
             dt.Start();
+        }
+
+        private void DtTicker(object sender, EventArgs e)
+        {
+            
+            if (MainFunctionCheckBox.IsChecked == true)
+            {
+                RunWatcherFunction();
+            }
+            if (SecondFunctionCheckBox.IsChecked == true)
+            {
+                RunSecondFunction();
+            }
+
+
+
+        }
+
+        private void RunTransferButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            dt.Stop();
         }
 
 
 
         private void RunWatcherFunction()
         {
-
+            
 
             // Variables
             string ext = ExtensionTextBox.Text;
@@ -194,6 +213,17 @@ namespace Studio_Wave_Transfer_2019
                     try
                     {
                         File.Move(v1, destination + "\\" + fileFullNameI);
+                        /*byte[] bt = new byte[1048756];
+                        int readByte;
+                        FileStream fsIn = new FileStream(v1, FileMode.Open);
+
+                       while((readByte = fsIn.Read(bt, 0, bt.Length)) > 0)
+                        {
+                           worker.ReportProgress((int)(fsIn.Position * 100 / fsIn.Length));
+                        }
+                        fsIn.Close();*/
+
+
 
                         DateTime today = DateTime.Now;
 
@@ -333,23 +363,7 @@ namespace Studio_Wave_Transfer_2019
         }
 
 
-        private void dtTicker(object sender, EventArgs e)
-        {
-            if (MainFunctionCheckBox.IsChecked == true)
-            {
-                RunWatcherFunction();
-            }
-            if (SecondFunctionCheckBox.IsChecked == true)
-            {
-                RunSecondFunction();
-            }
-
-        }
-
-        private void RunTransferButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            dt.Stop();
-        }
+       
 
         private void WriteInitFile()
         {

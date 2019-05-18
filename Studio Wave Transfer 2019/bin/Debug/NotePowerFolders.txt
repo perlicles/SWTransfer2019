@@ -1,0 +1,5 @@
+D:\Pasta Teste 1
+D:\Pasta Teste 2
+D:\Pasta Teste 3
+D:\Pasta Teste 4
+True

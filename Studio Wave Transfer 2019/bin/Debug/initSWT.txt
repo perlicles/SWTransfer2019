@@ -1,5 +1,5 @@
-source folder*D:\3 - Development\SWtransferTestArea\source
-destination folder*D:\3 - Development\SWtransferTestArea\destination
-second source*D:\3 - Development\SWtransferTestArea\second source
-second destination*D:\3 - Development\SWtransferTestArea\second destination
+source folder*D:\Pasta Teste 1
+destination folder*D:\Pasta Teste 2
+second source*D:\Pasta Teste 3
+second destination*D:\Pasta Teste 4
 open and run*True
